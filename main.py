@@ -16,7 +16,7 @@ stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
 df = yf.download(stocks, start=startDate, end=endDate)
 
 # Look at adjusted prices only
-adj_close_prices = df['Adj Close ]']
+adj_close_prices = df['Adj Close']
 
 # Calculate daily returns
 daily_returns = np.log(adj_close_prices / adj_close_prices.shift(1))
