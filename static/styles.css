@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+th, td {
+    padding: 10px 16px;
+    text-align: center;
+}
+
+th {
+    background: #222;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:hover {
+    background: #dceeff;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+}

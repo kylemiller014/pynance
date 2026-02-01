@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Weekly Stock Valuation</title>
+
+<link rel="stylesheet" href="../static/styles.css">
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1>Weekly Valuation Snapshot</h1>
+
+<table>
+<thead>
+<tr>
+    <th>Ticker</th>
+    <th>Price</th>
+    <th>P/E</th>
+    <th>PEG</th>
+    <th>P/B</th>
+    <th>EV/EBIT</th>
+    <th>Trend</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart1" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart2" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart3" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart4" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart5" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart6" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+        <canvas id="chart7" width="120" height="40"
+                data-history='[]'>
+        </canvas>
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+
+<script>
+document.querySelectorAll("canvas").forEach(canvas => {
+
+    const prices = JSON.parse(canvas.dataset.History);
+
+    new Chart(canvas, {
+        type: 'line',
+        data: {
+            labels: prices,
+            datasets: [{
+                data: prices,
+                borderWidth: 1.5,
+                borderColor: prices[0] < prices.at(-1) ? "green" : "red",
+                pointRadius: 0,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { display: false },
+                y: { display: false }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
